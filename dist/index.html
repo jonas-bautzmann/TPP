@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Installation Guide</title>
+</head>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+        margin: 2rem;
+    }
+
+    img {
+        box-shadow: rgba(0, 0, 0, 0.4) 0 1px 4px 0;
+        border-radius: 3px;
+    }
+
+    .content {
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    a {
+        cursor: grab;
+    }
+
+    a:active {
+        cursor: grabbing;
+    }
+
+    p {
+        line-height: 1.4;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .warning {
+        display: block;
+        color: darkred;
+        font-weight: bold;
+        padding: 0.5rem;
+    }
+</style>
+<body>
+<script>
+    const handleClick = (event) => {
+        event && event.preventDefault && event.preventDefault();
+        event && event.stopPropagation && event.stopPropagation();
+
+        document.querySelector(".warning").classList.remove("hidden");
+        return false;
+    }
+</script>
+
+<div class="content">
+    <h1>Installation Guide</h1>
+    <a href="javascript:(function(script){script=document.createElement('script');script.setAttribute('src','bundle.js');document.getElementsByTagName('head')[0].appendChild(script);})();" onclick="handleClick()">
+        <img src="https://placekitten.com/700/300" alt="Trustpilot Plugin"/>
+    </a>
+    <div class="warning hidden">
+        Drag & Drop into your bookmark list
+    </div>
+    <p>
+        Hey,<br/>
+        this small plugin was written to make your Trustpilot workflow a bit nicer.<br/>
+        First you need to &apos;install&apos; the script. <b>Just drag &amp; drop the image into your bookmark
+        bar.</b><br/>
+        To start the plugin <b>go to the Trustpilot reviews page and click on the created bookmark.</b><br/>
+    </p>
+    <p>
+        A small puzzle icon will appear a on the right side. That indicates that the plugin is loaded.<br/>
+        When you click on the icon you will get some extra actions which you can use as you like.<br/>
+    </p>
+    <p>
+        Beside that the core feature of this plugin is the easy way to tag reviews.<br/>
+        Just click on a review card and you will see all possible tags which you can use.<br/>
+    </p>
+</div>
+</body>
+</html>
