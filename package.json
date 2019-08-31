@@ -1,7 +1,7 @@
 {
-  "name": "simplest-typescript-webpack-boilerplate",
-  "version": "1.0.0",
-  "description": "Simplest Typescript webpack loader, ever.",
+  "name": "trustpilot-plugin",
+  "version": "0.1.0",
+  "description": "Small Plugin which makes workflows in Trustpilot a bit easier",
   "scripts": {
     "build": "webpack -p",
     "start": "webpack-dev-server --content-base ./public"
