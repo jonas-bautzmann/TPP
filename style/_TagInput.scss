@@ -1,0 +1,8 @@
+body.hide-tag-input .review {
+  .tag__help,
+  .tag-button,
+  .tag-bar .tag-field,
+  .tag-bar > a {
+    display: none;
+  }
+}

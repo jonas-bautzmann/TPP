@@ -1,0 +1,60 @@
+$panel-background-color: #191919;
+$panel-width: 240px;
+$text-color: white;
+$active-color: #368cd7;
+$hover-background-color: rgb(41, 41, 41);
+
+.plugin-panel {
+  font-family: Lato, sans-serif;
+  position: fixed;
+  background-color: $panel-background-color;
+  color: $text-color;
+  height: 100%;
+  width: $panel-width;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 1000;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+
+  hr {
+    margin: 0;
+  }
+
+  .button-list {
+    padding: 1rem;
+    width: 100%;
+    list-style: none;
+    box-sizing: border-box;
+
+    li {
+      cursor: pointer;
+      padding: 0.25rem 0;
+
+      &:hover {
+        color: darken($text-color, 20);
+      }
+
+      + li {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .close {
+    padding: 1rem;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-background-color;
+      color: $text-color;
+    }
+
+    .icon-close {
+      color: rgb(83, 83, 83);
+      padding-right: 0.25rem;
+      height: 1rem;
+    }
+  }
+}
