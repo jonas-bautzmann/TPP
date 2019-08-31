@@ -8,6 +8,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_API_KEY
+  local_dir: dist
   keep_history: true
   on:
     branch: master
