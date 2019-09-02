@@ -81,7 +81,8 @@ const createTag = (label: string) => {
 const addTag = (review: JQuery<HTMLElement>, label: string) => {
     clickAddTagButton(review);
 
-    let tagInput = document.querySelector(".tag-field input");
+    let currentReview = review.get(0);
+    let tagInput = currentReview && currentReview.querySelector(".tag-field input");
     let propertyDescriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
     let nativeInputValueSetter = propertyDescriptor && propertyDescriptor.set;
     nativeInputValueSetter && nativeInputValueSetter.call(tagInput, label);
