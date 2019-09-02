@@ -79,7 +79,6 @@ const createTag = (label: string) => {
 };
 
 const addTag = (review: JQuery<HTMLElement>, label: string) => {
-    debugger;
     clickAddTagButton(review);
 
     let tagInput = document.querySelector(".tag-field input");
