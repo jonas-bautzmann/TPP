@@ -6,6 +6,17 @@
   transform: none;
 }
 
+.ServiceReviewsApp .tag-item {
+  background: #fff !important;
+  border-color: #368cd7 !important;
+  color: #368cd7 !important;
+  font-weight: bold;
+
+  svg {
+    fill: #368cd7 !important;
+  }
+}
+
 .tag-selection {
   .category {
     padding: .5rem 0 0;
