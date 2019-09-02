@@ -1,4 +1,5 @@
 import * as $ from "jquery";
+import {waitUntilElementVanished} from "./Util";
 
 export const scrollToLastTagged = () => {
     const reviews = $(".reviews .review");
@@ -28,13 +29,5 @@ export const scrollToLastUntagged = () => {
 };
 
 const waitUntilLoaderVanished = (callback: () => void) => {
-    setTimeout(() => {
-        const isLoaderVisible = $(".reviews > :not(.review)").length >= 1;
-
-        if(isLoaderVisible) {
-            waitUntilLoaderVanished(callback);
-        } else {
-            callback();
-        }
-    }, 500);
+    waitUntilElementVanished(".reviews > :not(.review)", callback);
 };
