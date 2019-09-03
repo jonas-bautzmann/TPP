@@ -6,27 +6,27 @@
     },
     {
       "name": "Quality",
-      "tagGroups": [["ProductPos", "ProductNeg", "ProductError"], ["Smell"], ["PrintPos", "PrintNeg", "PrintError"]]
+      "tagGroups": [["Product"],["Smell"], ["PrintPos", "PrintNeg"]]
     },
     {
       "name": "Sizing",
-      "tagGroups": [["ProductSizingPos", "ProductSizingNeg", "ProductSizingError"], ["DesignSizingPos", "DesignSizingNeg", "DesignSizingError"]]
+      "tagGroups": [["ProductSizingPos", "ProductSizingNeg"], ["DesignSizing"]]
     },
     {
       "name": "Shipping",
-      "tagGroups": [["ShippingPos", "ShippingNeg", "ShippingError"], ["GiftWrapPos", "GiftWrapNeg", "GiftWrapError"], ["Customs", "Stockout"]]
+      "tagGroups": [["ShippingPos", "ShippingNeg"], ["GiftWrap"], ["Customs"], ["Stockout"]]
     },
     {
       "name": "Payment",
-      "tagGroups": [["PricingPos", "PricingNeg"], ["ShippingPrice", "Payment"]]
+      "tagGroups": [["Pricing"], ["Payment"]]
     },
     {
       "name": "Communication",
-      "tagGroups": [["ServiceExperiencePos", "ServiceExperienceNeg"], ["ReturnPoliciesPos", "ReturnPoliciesNeg"], ["Suggestion"]]
+      "tagGroups": [["ServiceExperience"], ["ReturnPolicies"], ["Suggestion"]]
     },
     {
       "name": "Other",
-      "tagGroups": [["CYOPos", "CYONeg"], ["MarketplacePos", "MarketplaceNeg"], ["Bug"]]
+      "tagGroups": [["CYO"], ["Marketplace"], ["Bug"]]
     },
     {
       "name": "Unspecified Ratings",
