@@ -7,7 +7,7 @@ const icon = $("<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"far\
 
 const panel = $("<div class='plugin-panel'></div>");
 export const appendPanel = () => {
-    if ($('.panel').length) {
+    if ($('.plugin-panel').length) {
         return;
     }
 

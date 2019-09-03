@@ -17,6 +17,22 @@ const initialize = () => {
     }
 };
 
+var targetNode = document.querySelector(".ServiceReviewsApp");
+var observerOptions = {
+    childList: true,
+    attributes: false,
+    subtree: false
+};
+
+var observer = new MutationObserver(function () {
+    if (!document.querySelector(".ServiceReviewsApp .reviews")) {
+        initialize();
+    }
+});
+
+targetNode && observer.observe(targetNode, observerOptions);
+
+
 window.addEventListener("hashchange", initialize, false);
 
 initialize();
