@@ -18,7 +18,7 @@
     },
     {
       "name": "Payment",
-      "tagGroups": [["Pricing"], ["Payment"]]
+      "tagGroups": [["Pricing"], ["Payment"], ["ShippingPrice"]]
     },
     {
       "name": "Communication",
