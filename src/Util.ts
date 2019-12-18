@@ -1,3 +1,5 @@
+import * as $ from "jquery";
+
 export const waitUntilElementVanished = (selector: string, callback: () => void) => {
     setTimeout(() => {
         const isElementVisible = $(selector).length >= 1;
