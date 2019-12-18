@@ -7,8 +7,8 @@ import {waitUntilElementIsVisible} from "./src/Util";
 import "./style/index.scss";
 
 const initialize = () => {
-    if (window.location.hash.indexOf("reviews") >= 0) {
-        waitUntilElementIsVisible(".ServiceReviewsApp .reviews .review", () => {
+    if (window.location.hash.indexOf("reviews") >= 0 || window.location.pathname.indexOf("reviews") >= 0) {
+        waitUntilElementIsVisible(".reviews .review", () => {
             appendIcon();
             appendPanel();
             addListenersToReviews();
@@ -17,7 +17,7 @@ const initialize = () => {
     }
 };
 
-var targetNode = document.querySelector(".ServiceReviewsApp");
+var targetNode = document.querySelector(".ServiceReviewsApp") || document.querySelector("#react-app");
 var observerOptions = {
     childList: true,
     attributes: false,
@@ -25,7 +25,7 @@ var observerOptions = {
 };
 
 var observer = new MutationObserver(function () {
-    if (!document.querySelector(".ServiceReviewsApp .reviews")) {
+    if (!document.querySelector(".reviews")) {
         initialize();
     }
 });
