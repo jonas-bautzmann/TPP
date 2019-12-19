@@ -11,4 +11,4 @@ deploy:
   local_dir: dist
   keep_history: true
   on:
-    branch: master
+    tags: true
