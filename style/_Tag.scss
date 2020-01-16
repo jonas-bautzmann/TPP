@@ -5,6 +5,10 @@
 .reviews .review {
   transform: none;
 
+  .review__title {
+    pointer-events: none;
+  }
+
   .tag-item {
     background: #fff !important;
     border-color: #368cd7 !important;
