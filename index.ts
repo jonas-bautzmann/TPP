@@ -13,6 +13,9 @@ const initialize = () => {
             appendPanel();
             addListenersToReviews();
             hideTagInput();
+            
+            var reviews = document.querySelector(".reviews");
+            reviews && loadingObserver.observe(reviews.parentElement!, observerOptions);
         });
     }
 };
@@ -24,13 +27,19 @@ var observerOptions = {
     subtree: false
 };
 
-var observer = new MutationObserver(function () {
+var initObserver = new MutationObserver(() => {
     if (!document.querySelector(".reviews")) {
         initialize();
     }
 });
+targetNode && initObserver.observe(targetNode, observerOptions);
 
-targetNode && observer.observe(targetNode, observerOptions);
+var loadingObserver = new MutationObserver(() => {
+    if (document.querySelector(".reviews")) {
+        addListenersToReviews();
+    }
+});
+
 
 
 window.addEventListener("hashchange", initialize, false);
