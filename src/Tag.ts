@@ -94,7 +94,13 @@ const addTag = (review: JQuery<HTMLElement>, label: string) => {
     tagButton.trigger("click");
 };
 
-const findTagByLabel = (review: JQuery<HTMLElement>, label: string) => review.find(`.tag-selection .tag:contains(${label})`);
+const findTagByLabel = (review: JQuery<HTMLElement>, label: string) => {
+    let tag = review
+        .find(`.tag-selection .tag`)
+        .toArray()
+        .find((element) => element.innerText === label);
+    return tag ? $(tag) : $();
+};
 
 const selectTag = (review: JQuery<HTMLElement>, label: string) => {
     let tag = findTagByLabel(review, label);
@@ -123,7 +129,7 @@ const loadAndApplyTags = (tagSelection: JQuery<HTMLElement>) => {
             tagList.append(tags);
             return tagList;
         });
-            
+
         categoryEl.append(lists);
 
         tagSelection.append(categoryEl);
