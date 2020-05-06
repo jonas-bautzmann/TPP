@@ -1,4 +1,4 @@
-.tag-bar {
+.tags {
   min-height: 30px;
 }
 
@@ -9,7 +9,7 @@
     pointer-events: none;
   }
 
-  .tag-item {
+  .tags__item {
     background: #fff !important;
     border-color: #368cd7 !important;
     color: #368cd7 !important;

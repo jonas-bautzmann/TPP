@@ -29,11 +29,11 @@ const addEventListenerToReview = (review: JQuery<HTMLElement>) => {
 
         loadAndApplyTags(tagSelection);
 
-        let reviewDetails = $(event.currentTarget).find(".review__content .tag-bar");
+        let reviewDetails = $(event.currentTarget).find(".review__content .tags");
         reviewDetails.after(tagSelection);
 
-        let tagBar = review.find(".tag-bar");
-        tagBar.find(".tag-item").each((index, element) => selectTag(review, $(element).text()));
+        let tagBar = review.find(".tags");
+        tagBar.find(".tags__item").each((index, element) => selectTag(review, $(element).text()));
 
         addEventListenerToTagBar(tagBar);
     };
@@ -44,7 +44,7 @@ const addEventListenerToReview = (review: JQuery<HTMLElement>) => {
 const addEventListenerToTagBar = (tagBar: JQuery<HTMLElement>) => {
     const handleTagRemove = (event: any) => {
         let target = $(event.target),
-            isTag = target.hasClass("tag-item");
+            isTag = target.hasClass("tags__item");
 
         if (!isTag) {
             return;
@@ -82,7 +82,7 @@ const addTag = (review: JQuery<HTMLElement>, label: string) => {
     clickAddTagButton(review);
 
     let currentReview = review.get(0);
-    let tagInput = currentReview && currentReview.querySelector(".tag-field input");
+    let tagInput = currentReview && currentReview.querySelector(".tags__field__input");
     let propertyDescriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
     let nativeInputValueSetter = propertyDescriptor && propertyDescriptor.set;
     nativeInputValueSetter && nativeInputValueSetter.call(tagInput, label);
@@ -90,7 +90,7 @@ const addTag = (review: JQuery<HTMLElement>, label: string) => {
     let inputEvent = new Event('input', {bubbles: true});
     tagInput && tagInput.dispatchEvent(inputEvent);
 
-    let tagButton = review.find(".tag-field button");
+    let tagButton = review.find(".tags__field__button");
     tagButton.trigger("click");
 };
 
@@ -113,7 +113,7 @@ const deselectTag = (review: JQuery<HTMLElement>, label: string) => {
 };
 
 const clickAddTagButton = (parent: HTMLElement | EventTarget | JQuery<HTMLElement>) => {
-    let button = $(parent).find(".tag-button");
+    let button = $(parent).find(".tags__button");
     button.trigger("click");
 };
 
