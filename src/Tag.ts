@@ -1,11 +1,11 @@
-import * as $ from "jquery";
-import * as tags from "../resource/tags.json";
+import * as $ from 'jquery';
+import * as tags from '../resource/tags.json';
 
 export const addListenersToReviews = () => {
-    let reviews = $(".reviews");
+    let reviews = $('.reviews');
     reviews.bind('DOMNodeInserted', (event) => {
         let target = event && event.target;
-        let isReview = target.classList.contains("review");
+        let isReview = target.classList.contains('review');
         if (!isReview) {
             return;
         }
@@ -18,33 +18,33 @@ export const addListenersToReviews = () => {
 
 const addEventListenerToReview = (review: JQuery<HTMLElement>) => {
     let handleClick = (event: any) => {
-        review.off("click", handleClick);
+        review.off('click', handleClick);
         clickAddTagButton(event.currentTarget);
 
-        if ($(event.currentTarget).find(".tag-selection").length) {
+        if ($(event.currentTarget).find('.tag-selection').length) {
             return;
         }
 
-        let tagSelection = $("<div class='tag-selection'/>");
+        let tagSelection = $('<div class=\'tag-selection\'/>');
 
         loadAndApplyTags(tagSelection);
 
-        let reviewDetails = $(event.currentTarget).find(".review__content .tags");
+        let reviewDetails = $(event.currentTarget).find('.review__content .tags');
         reviewDetails.after(tagSelection);
 
-        let tagBar = review.find(".tags");
-        tagBar.find(".tags__item").each((index, element) => selectTag(review, $(element).text()));
+        let tagBar = review.find('.tags');
+        tagBar.find('.tags__item').each((index, element) => selectTag(review, $(element).text()));
 
         addEventListenerToTagBar(tagBar);
     };
 
-    review.on("click", handleClick);
+    review.on('click', handleClick);
 };
 
 const addEventListenerToTagBar = (tagBar: JQuery<HTMLElement>) => {
     const handleTagRemove = (event: any) => {
         let target = $(event.target),
-            isTag = target.hasClass("tags__item");
+            isTag = target.hasClass('tags__item');
 
         if (!isTag) {
             return;
@@ -52,27 +52,27 @@ const addEventListenerToTagBar = (tagBar: JQuery<HTMLElement>) => {
 
         let tag = target,
             label = tag.text(),
-            review = tag.closest(".review");
+            review = tag.closest('.review');
 
         deselectTag(review, label);
     };
 
-    tagBar.bind("DOMNodeRemoved", handleTagRemove);
+    tagBar.bind('DOMNodeRemoved', handleTagRemove);
 };
 
 const createTag = (label: string) => {
-    let tag = $("<li class='tag'></li>");
+    let tag = $('<li class=\'tag\'></li>');
     tag.text(label);
-    tag.bind("click", (event) => {
+    tag.bind('click', (event) => {
         event && event.preventDefault();
 
-        if (tag.hasClass("selected")) {
+        if (tag.hasClass('selected')) {
             return;
         }
 
-        let review = tag.closest(".review");
+        let review = tag.closest('.review');
         addTag(review, label);
-        tag.addClass("selected");
+        tag.addClass('selected');
     });
 
     return tag;
@@ -82,7 +82,11 @@ const addTag = (review: JQuery<HTMLElement>, label: string) => {
     clickAddTagButton(review);
 
     let currentReview = review.get(0);
-    let tagInput = currentReview && currentReview.querySelector(".tags__field__input");
+    let tagInput: HTMLInputElement | null = currentReview && currentReview.querySelector('.tags__field label input[type=\'text\']');
+
+    if (!tagInput) {
+        return;
+    }
     let propertyDescriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
     let nativeInputValueSetter = propertyDescriptor && propertyDescriptor.set;
     nativeInputValueSetter && nativeInputValueSetter.call(tagInput, label);
@@ -90,8 +94,8 @@ const addTag = (review: JQuery<HTMLElement>, label: string) => {
     let inputEvent = new Event('input', {bubbles: true});
     tagInput && tagInput.dispatchEvent(inputEvent);
 
-    let tagButton = review.find(".tags__field__button");
-    tagButton.trigger("click");
+    let tagButton = review.find('.tags__field label button');
+    tagButton.trigger('click');
 };
 
 const findTagByLabel = (review: JQuery<HTMLElement>, label: string) => {
@@ -104,27 +108,27 @@ const findTagByLabel = (review: JQuery<HTMLElement>, label: string) => {
 
 const selectTag = (review: JQuery<HTMLElement>, label: string) => {
     let tag = findTagByLabel(review, label);
-    tag.addClass("selected");
+    tag.addClass('selected');
 };
 
 const deselectTag = (review: JQuery<HTMLElement>, label: string) => {
     let tag = findTagByLabel(review, label);
-    tag.removeClass("selected");
+    tag.removeClass('selected');
 };
 
 const clickAddTagButton = (parent: HTMLElement | EventTarget | JQuery<HTMLElement>) => {
-    let button = $(parent).find(".tags__button");
-    button.trigger("click");
+    let button = $(parent).find('.tags__button');
+    button.trigger('click');
 };
 
 const loadAndApplyTags = (tagSelection: JQuery<HTMLElement>) => {
     let categories = tags.categories;
     categories.forEach((category) => {
-        let categoryEl = $("<div class='category'/>");
+        let categoryEl = $('<div class=\'category\'/>');
         categoryEl.append(`<div class='name'>${category.name}</div>`);
 
         let lists = category.tagGroups.map((tagGroup) => {
-            let tagList = $("<ul class='tags'/>");
+            let tagList = $('<ul class=\'tags\'/>');
             let tags = tagGroup.map((tag) => createTag(tag));
             tagList.append(tags);
             return tagList;
@@ -133,5 +137,5 @@ const loadAndApplyTags = (tagSelection: JQuery<HTMLElement>) => {
         categoryEl.append(lists);
 
         tagSelection.append(categoryEl);
-    })
+    });
 };
