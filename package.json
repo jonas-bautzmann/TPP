@@ -4,7 +4,8 @@
   "description": "Small Plugin which makes workflows in Trustpilot a bit easier",
   "scripts": {
     "build": "webpack -p && cp public/index.html dist/index.html",
-    "start": "webpack-dev-server --content-base ./public"
+    "start": "webpack-dev-server --content-base ./public",
+    "test": "echo \"No test specified\" && exit 0"
   },
   "author": "Jonas Bautzmann",
   "license": "MIT",
