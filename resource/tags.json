@@ -17,16 +17,16 @@
       "tagGroups": [["ShippingPos", "ShippingNeg"], ["GiftWrap"], ["Customs"], ["Stockout"]]
     },
     {
+      "name": "Production",
+      "tagGroups": [["Delayed"]]
+    },
+    {
       "name": "Payment",
       "tagGroups": [["Pricing"], ["Payment"], ["ShippingPrice"]]
     },
     {
       "name": "Communication",
       "tagGroups": [["ServiceExperience"], ["ReturnPolicies"], ["Suggestion"]]
-    },
-    {
-      "name": "Production",
-      "tagGroups": [["Delayed"]]
     },
     {
       "name": "Other",
