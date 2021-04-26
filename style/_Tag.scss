@@ -1,4 +1,4 @@
-.tags {
+.review--active .tags {
   min-height: 30px;
 }
 
@@ -9,7 +9,7 @@
     pointer-events: none;
   }
 
-  .tags__item {
+  .tags > div:first-child > span {
     background: #fff !important;
     border-color: #368cd7 !important;
     color: #368cd7 !important;

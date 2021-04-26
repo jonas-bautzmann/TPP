@@ -33,7 +33,8 @@ const addEventListenerToReview = (review: JQuery<HTMLElement>) => {
         reviewDetails.after(tagSelection);
 
         let tagBar = review.find('.tags');
-        tagBar.find('.tags__item').each((index, element) => selectTag(review, $(element).text()));
+
+        tagBar.find("div:first-child > span").each((index, element) => selectTag(review, $(element).text()));
 
         addEventListenerToTagBar(tagBar);
     };
@@ -43,8 +44,8 @@ const addEventListenerToReview = (review: JQuery<HTMLElement>) => {
 
 const addEventListenerToTagBar = (tagBar: JQuery<HTMLElement>) => {
     const handleTagRemove = (event: any) => {
-        let target = $(event.target),
-            isTag = target.hasClass('tags__item');
+        let target = $(event.target);
+        let isTag = !!target.parent(".tags div:first-child").length;
 
         if (!isTag) {
             return;
@@ -128,7 +129,7 @@ const loadAndApplyTags = (tagSelection: JQuery<HTMLElement>) => {
         categoryEl.append(`<div class='name'>${category.name}</div>`);
 
         let lists = category.tagGroups.map((tagGroup) => {
-            let tagList = $('<ul class=\'tags\'/>');
+            let tagList = $('<ul class=\'tag-list\'/>');
             let tags = tagGroup.map((tag) => createTag(tag));
             tagList.append(tags);
             return tagList;
