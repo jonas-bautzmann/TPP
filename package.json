@@ -1,6 +1,6 @@
 {
   "name": "trustpilot-plugin",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Small Plugin which makes workflows in Trustpilot a bit easier",
   "scripts": {
     "build": "webpack --mode=production && cp public/index.html dist/index.html",
