@@ -3,7 +3,7 @@ import {waitUntilElementVanished} from "./Util";
 
 export const scrollToLastTagged = () => {
     const reviews = $(".reviews .review");
-    const tagItems = reviews.find(".tags .tags__item");
+    const tagItems = reviews.find(".tags div:first-child > span");
 
     if (tagItems.length) {
         let review = tagItems[0].closest(".review");
@@ -16,7 +16,7 @@ export const scrollToLastTagged = () => {
 
 export const scrollToLastUntagged = () => {
     const reviews = $(".reviews .review");
-    const emptyTagbars = reviews.find(".tags:not(:has(.tags__item))");
+    const emptyTagbars = reviews.find(".tags div:first-child:not(:has(span))");
 
     if (emptyTagbars.length) {
         let review = emptyTagbars[0].closest(".review");
