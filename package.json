@@ -3,28 +3,28 @@
   "version": "0.7.1",
   "description": "Small Plugin which makes workflows in Trustpilot a bit easier",
   "scripts": {
-    "build": "webpack -p && cp public/index.html dist/index.html",
-    "start": "webpack-dev-server --content-base ./public",
+    "build": "webpack --mode=production && cp public/index.html dist/index.html",
+    "start": "webpack serve --mode=development --content-base ./public",
     "test": "echo \"No test specified\" && exit 0"
   },
   "author": "Jonas Bautzmann",
   "license": "MIT",
   "devDependencies": {
-    "@types/jquery": "^3.3.31",
-    "autoprefixer": "^9.7.3",
-    "css-loader": "^3.4.0",
-    "cssnano": "^4.1.10",
-    "node-sass": "^4.13.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.2",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.3",
-    "webpack": "^4.41.3",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "@types/jquery": "^3.5.5",
+    "autoprefixer": "^10.2.5",
+    "css-loader": "^5.2.4",
+    "cssnano": "^5.0.1",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.6.0"
   }
 }

@@ -15,10 +15,23 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     {loader: 'style-loader'},
-                    {loader: 'css-loader', query: {importLoaders: 2}},
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
-                        query: {plugins: [autoprefixer(), cssnano({zindex: false})]},
+                        options: {
+                            postcssOptions: {
+                                ident: 'postcss',
+                                plugins: [
+                                    autoprefixer(),
+                                    cssnano({zindex: false})
+                                ]
+                            },
+                        }
                     },
                     'sass-loader',
                 ],
